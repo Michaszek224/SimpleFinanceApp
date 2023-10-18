@@ -32,6 +32,6 @@ def addTransaction(request, pk):
         money = Money.objects.create(user=user, balance=transactionAmount, lastTransaction=transactionAmount)
         money.save()
 
-        return redirect('moneyView', pk=money.id)
+        return redirect('userView', pk=user.id)
     context = {'user':user}
     return render(request, 'finance/addTransaction.html', context)

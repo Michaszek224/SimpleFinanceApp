@@ -18,5 +18,6 @@
         </li>
     {% endfor %}
 
-    <li>Add new account</li>
+    <a href="{% url 'addMoney' pk=user.id%}">Add</a>
+ 
 </ul>
