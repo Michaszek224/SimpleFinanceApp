@@ -1,0 +1,13 @@
+<body style="background-color: rgb(129, 121, 121)"></body>
+
+{% for user in users %}
+
+<ul>
+    <li>
+        <a href="{% url 'userView' pk=user.id %}">{{ user.name }} {{ user.surname }}</a>
+    </li>
+</ul>
+
+{% endfor %}
+
+<h4>Add User</h4>

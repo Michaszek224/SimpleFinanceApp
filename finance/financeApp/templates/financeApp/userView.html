@@ -1,0 +1,22 @@
+<body style="background-color: rgb(129, 121, 121)"></body>
+
+<h1>Hello {{user.name}}</h1>
+<ul>
+    <li>
+        Back To
+        <a href="{% url 'homeView' %}">Main Menu</a>
+    </li>
+</ul>
+<hr>
+<h2>List of yours accounts:</h2>
+
+<ul>
+    {% for money in user.money_set.all %}
+        <li>
+            Balance: {{money.balance}}
+            <a href="{% url 'moneyView' pk=money.id%}">See</a>
+        </li>
+    {% endfor %}
+
+    <li>Add new account</li>
+</ul>

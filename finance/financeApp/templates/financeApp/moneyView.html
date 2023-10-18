@@ -1,0 +1,16 @@
+<body style="background-color: rgb(129, 121, 121)"></body>
+
+<h1>Hello {{money.user}}</h1>
+<h2>This is your bank account with {{money.balance}} money</h2>
+
+<h3>Last outcome= {{money.lastOutcome}}</h3>
+<h3>Last income= {{money.lastIncome}}</h3>
+
+
+<a href="{% url 'addMoney' pk=money.id%}">Add</a>
+
+
+<p>
+    Back to your
+    <a href="{% url 'userView' pk=money.user.id%}">Profile</a>
+</p>

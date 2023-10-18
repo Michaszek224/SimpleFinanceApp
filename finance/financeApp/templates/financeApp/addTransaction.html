@@ -1,0 +1,14 @@
+<body style="background-color: rgb(129, 121, 121)"></body>
+
+
+<h1>Adding Transaction</h1>
+<hr>
+
+<form action="addTransaction" method="post">
+    {% csrf_token %}
+    <h3>Last Transaction: </h3>
+    <input name="transaction">
+    <input type="submit" value="Submit">
+</form>
+
+<a href="{% url 'moneyView' pk=money.id%}">Cancel</a>
