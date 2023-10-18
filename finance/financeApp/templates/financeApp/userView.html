@@ -15,9 +15,10 @@
         <li>
             Balance: {{money.balance}}
             <a href="{% url 'moneyView' pk=money.id%}">See</a>
+            <a href="{% url 'deleteMoney' pk=money.id %}">Delete</a>
         </li>
     {% endfor %}
-
-    <a href="{% url 'addMoney' pk=user.id%}">Add</a>
+    <hr>
+    <a href="{% url 'addMoney' pk=user.id%}">Add New Balance</a>
  
 </ul>

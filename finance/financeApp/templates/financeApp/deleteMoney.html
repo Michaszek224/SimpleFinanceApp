@@ -1,0 +1,13 @@
+<body style="background-color: rgb(129, 121, 121)"></body>
+
+<h1>Delete Money</h1>
+<hr>
+
+<p>Are you sure you want to delete?</p>
+
+<form action="{% url 'deleteMoney' pk=money.id %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Delete">
+
+    <a href="{% url 'userView' pk=money.user.id %}">Cancel</a>
+</form>

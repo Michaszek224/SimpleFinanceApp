@@ -25,7 +25,7 @@ def addMoney(request, pk):
     context = {'money':money}
     return render(request, 'financeApp/addTransaction.html', context)
 
-def addTransaction(request, pk):
+def addMoneyPost(request, pk):
     user = User.objects.get(pk=pk)
     if request.method == 'POST':
         transactionAmount = float(request.POST.get('transaction', 0.0))
@@ -35,3 +35,12 @@ def addTransaction(request, pk):
         return redirect('userView', pk=user.id)
     context = {'user':user}
     return render(request, 'finance/addTransaction.html', context)
+
+def deleteMoney(request, pk):
+    money = Money.objects.get(id = pk)
+
+    if request.method == 'POST':
+        money.delete()
+        return redirect('userView', pk = money.user.id)
+    context = {'money': money}
+    return render(request, 'financeApp/deleteMoney.html', context)
