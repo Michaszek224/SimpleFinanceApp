@@ -5,5 +5,6 @@ urlpatterns = [
     path('', homeView, name='homeView'),
     path('user/<str:pk>/', userView, name='userView'),
     path('money/<str:pk>/', moneyView, name='moneyView'),
-    path('money/<str:pk>/add/', addMoney, name='addMoney')
+    path('money/<str:pk>/add/', addMoney, name='addMoney'),
+    path('money/<str:pk>/add/addTransaction', addTransaction, name='addTransaction')
 ]

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
 from .forms import *
 from django.http import JsonResponse
@@ -24,3 +24,14 @@ def addMoney(request, pk):
     money = Money.objects.get(id=pk)
     context = {'money':money}
     return render(request, 'financeApp/addTransaction.html', context)
+
+def addTransaction(request, pk):
+    user = User.objects.get(pk=pk)
+    if request.method == 'POST':
+        transactionAmount = float(request.POST.get('transaction', 0.0))
+        money = Money.objects.create(user=user, balance=transactionAmount, lastTransaction=transactionAmount)
+        money.save()
+
+        return redirect('moneyView', pk=money.id)
+    context = {'user':user}
+    return render(request, 'finance/addTransaction.html', context)

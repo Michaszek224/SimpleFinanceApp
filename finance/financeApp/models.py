@@ -14,5 +14,4 @@ class User(models.Model):
 class Money(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     balance = models.DecimalField(decimal_places=2, max_digits=10)
-    lastIncome = models.DecimalField(decimal_places=2, max_digits=10)
-    lastOutcome = models.DecimalField(decimal_places=2, max_digits=10)
+    lastTransaction = models.DecimalField(decimal_places=2, max_digits=10)
