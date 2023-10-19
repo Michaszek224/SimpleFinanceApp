@@ -1,0 +1,13 @@
+<body style="background-color: rgb(129, 121, 121)"></body>
+<h1>this is new money template</h1>
+
+<hr>
+
+<form action="newMoneyAdd/" method="post">
+    {% csrf_token %}
+    <h3>Enter New Transaction:</h3>
+    <input name="moneyInput">
+    <input type="submit" value="Submit">
+</form>
+
+<a href="{% url 'moneyView' pk=money.id %}">Cancel</a>

@@ -44,3 +44,21 @@ def deleteMoney(request, pk):
         return redirect('userView', pk = money.user.id)
     context = {'money': money}
     return render(request, 'financeApp/deleteMoney.html', context)
+
+def newMoney(request, pk):
+    money = Money.objects.get(id = pk)
+    context={'money':money}
+    return render(request, 'financeApp/newMoney.html', context)
+
+def newMoneyAdd(request, pk):
+    money = Money.objects.get(id = pk)
+    if request.method == 'POST':
+        moneyAmount = float(request.POST.get('moneyInput', 0.0))
+        currentBalance = money.balance
+        money.lastTransaction = moneyAmount
+        money.balance = float(currentBalance) + moneyAmount
+        money.save()
+        return redirect('moneyView', pk=money.id)
+
+    context = {'money':money}
+    return render(request, 'financeApp/newMoney.html', context)

@@ -6,7 +6,7 @@
 <h3>Last Transaction= {{money.lastTransaction}}</h3>
 
 
-<h1>Add new transaction</h1>
+<a href="{% url 'newMoney' pk=money.id%}">Add new transaction</a>
 
 
 <p>
