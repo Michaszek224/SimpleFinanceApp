@@ -10,5 +10,6 @@ urlpatterns = [
     path('money/<str:pk>/', moneyView, name='moneyView'),
     path('money/<str:pk>/delete/', deleteMoney, name= 'deleteMoney'),
     path('money/<str:pk>/newMoney/', newMoney, name='newMoney'),
-    path('money/<str:pk>/newMoney/newMoneyAdd/', newMoneyAdd, name='newMoneyAdd')
+    path('money/<str:pk>/newMoney/newMoneyAdd/', newMoneyAdd, name='newMoneyAdd'),
+    path('user/<str:pk>/delete/', deleteUser, name='deleteUser'),
 ]

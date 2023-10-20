@@ -80,3 +80,13 @@ def addUser(request):
         return redirect('homeView')
     
     return render(request, 'financeApp/newUser.html')
+
+def deleteUser(request, pk):
+    user = User.objects.get(id = pk)
+
+    if request.method == 'POST':
+        user.delete()
+        return redirect('homeView')
+
+    context = {'user': user}
+    return render(request, 'financeApp/deleteUser.html', context)

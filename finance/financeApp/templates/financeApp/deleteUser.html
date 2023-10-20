@@ -1,0 +1,11 @@
+<body style="background-color: rgb(129, 121, 121)"></body>
+
+<h1>Deleting User</h1>
+<hr>
+<form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Delete User">
+
+    <a href="{% url 'homeView' %}">Cancel</a>
+</form>
+
