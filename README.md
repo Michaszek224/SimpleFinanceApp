@@ -1,9 +1,6 @@
 # SimpleFinanceApp
 Learning project in django
 
+Main goal was to practice using CRUD operations on a simple model 
 
-Tasks:
-
-  -Add Option of creating new transaction
-  
-  -Add Option of creating new user
+All features all tested and working 
