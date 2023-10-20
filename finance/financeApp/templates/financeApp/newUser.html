@@ -1,0 +1,22 @@
+<body style="background-color: rgb(129, 121, 121)"></body>
+
+<h1>Adding new User</h1>
+
+<form action="" method="post">
+{% csrf_token %}
+    <ul>
+        <li>Name:
+            <input type="text" name="nameInput">
+        </li>
+        <li>Surname:
+            <input type="text" name="surnameInput">
+        </li>
+        <li>
+            <input type="submit" value="Submit">
+        </li>
+    </ul>
+</form>
+
+<a href="{% url 'homeView' %}">Cancel</a>
+
+

@@ -62,3 +62,16 @@ def newMoneyAdd(request, pk):
 
     context = {'money':money}
     return render(request, 'financeApp/newMoney.html', context)
+
+def addUser(request):
+    if request.method == 'POST':
+        name = request.POST.get('nameInput')
+        surname = request.POST.get('surnameInput')
+
+        userCurrent = User(name = name, surname = surname)
+        userCurrent.save()
+        money = Money(user = userCurrent, balance = 0, lastTransaction = 0)
+        money.save()
+        return redirect('homeView')
+    
+    return render(request, 'financeApp/newUser.html')
