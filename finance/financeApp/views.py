@@ -21,7 +21,12 @@ def moneyView(request, pk):
     return render(request, 'financeApp/moneyView.html', context)
 
 def addMoney(request, pk):
-    money = Money.objects.get(id=pk)
+    user = User.objects.get(id = pk)
+
+    try:
+        money = Money.objects.get(user=user)
+    except Money.DoesNotExist:
+        money = Money.objects.create(user=user, balance=0, lastTransaction=0)
     context = {'money':money}
     return render(request, 'financeApp/addTransaction.html', context)
 
